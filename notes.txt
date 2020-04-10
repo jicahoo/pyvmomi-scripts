@@ -1,0 +1,12 @@
+# installed on my ubuntu
+jichao@ubuntu:~$ python3
+Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pyvmoi
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'pyvmoi'
+>>> from pyVmomi import vim
+>>> 
+
