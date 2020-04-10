@@ -10,3 +10,15 @@ ModuleNotFoundError: No module named 'pyvmoi'
 >>> from pyVmomi import vim
 >>> 
 
+
+# vSphere query sucessfully
+jichao@ubuntu:~/github/pyvmomi-community-samples/samples$ python3 list_datastore_info.py  -s 10.207.122.115 -u administrator@vsphere.local -p Password123! -S
+ESXi Host:    	10.207.121.239	
+
+Datastore:     	Local_Storage	
+UUID:          	578603ea-5c52a2ef-87a7-005056042c8c	
+Capacity:      	142.5GB	
+VMFS Version:  	5.61	
+Is Local VMFS: 	True	
+SSD:           	True	
+Extent[0]:	mpx.vmhba1:C0:T0:L0	
