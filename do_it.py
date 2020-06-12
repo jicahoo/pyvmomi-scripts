@@ -54,7 +54,7 @@ def main():
     sslContext = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
     sslContext.verify_mode = ssl.CERT_NONE
     args = ConnectInfo()
-    args.host = '10.207.122.115'
+    args.host = '10.207.90.165'
     args.user = 'administrator@vsphere.local'
     args.password = 'Password123!'
 
@@ -82,12 +82,24 @@ def main():
         datastores = {}
         for esxi_host in esxi_hosts:
             if not args.json:
-                print("{}\t{}\t\n".format("ESXi Host:    ", esxi_host.name))
+                print("\n{}\t{}\t\n".format("ESXi Host:    ", esxi_host.name))
 
             # All Filesystems on ESXi host
             storage_system = esxi_host.configManager.storageSystem
+            ds_sys = esxi_host.configManager.datastoreSystem
+            print(dir(ds_sys))
+            u_vols = ds_sys.QueryUnresolvedVmfsVolumes()
+            print('<'*20)
+            print(u_vols)
+            print(len(u_vols))
+            print('>'*20)
             host_file_sys_vol_mount_info = \
                 storage_system.fileSystemVolumeInfo.mountInfo
+            unresolvedVolumes = storage_system.QueryUnresolvedVmfsVolume()
+            print('<'*20)
+            print(unresolvedVolumes)
+            print(len(unresolvedVolumes))
+            print('>'*20)
 
             datastore_dict = {}
             # Map all filesystems
