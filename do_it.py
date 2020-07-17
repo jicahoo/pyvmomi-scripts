@@ -36,7 +36,7 @@ def print_fs(host_fs):
     :param host_fs:
     :return:
     """
-    print("{}\t{}\t".format("Datastore:     ", host_fs.volume.name))
+    print("\n{}\t{}\t".format("Datastore:     ", host_fs.volume.name))
     print("{}\t{}\t".format("UUID:          ", host_fs.volume.uuid))
     print("{}\t{}\t".format("Capacity:      ", sizeof_fmt(
         host_fs.volume.capacity)))
@@ -87,7 +87,8 @@ def main():
             # All Filesystems on ESXi host
             storage_system = esxi_host.configManager.storageSystem
             ds_sys = esxi_host.configManager.datastoreSystem
-            print(dir(ds_sys))
+            #print(dir(storage_system))
+            #print(dir(ds_sys))
             u_vols = ds_sys.QueryUnresolvedVmfsVolumes()
             print('<'*20)
             print(u_vols)
